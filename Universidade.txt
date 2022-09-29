@@ -27,27 +27,46 @@ Levantamento de requisitos
 Entidades:
 
 Pessoa: Nome, CPF, Data de nascimento, e-mail, telefone, endereço
+
 - Aluno – Matrícula, data de matrícula
+
 - Professor – Registro
+
 Disciplina: Nome, área, carga horária
+
 Curso: Nome, duração, professor coordenador
+
 Departamento: Nome, professor coordenador, campus
+
 Pré-requisitos: Nome do curso
+
 Período: Ano, semestre
+
 Sala: Nome
+
 Extensão: Nome, área, instituição, carga horária, data de conclusão,comprovante
 
 
 Relações:
 
 Aluno x Disciplina (N, M): Matriculado na disciplina
+
 Aluno x Curso (N, M): Matriculado no curso
+
 Pré-requisito x Disciplina (N, M): Pré-requisito das disciplinas
+
 Professor X Disciplina (1, N): Professor da disciplina
+
 Professor x Departamento (N, 1): Departamento do professor
+
 Professor x Departamento (1, 1): Coordenação do departamento
+
 Curso x Departamento (N, 1): Departamento do curso
+
 Disciplina x Período X Curso X Sala (N, M): Oferta da disciplina
+
 Sala X Departamento (N, 1): Departamento da sala
+
 Aluno x Extensão (N, M): Horas complementares
+
 Curso x Professor (1, 1): Coordenador do curso
