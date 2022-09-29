@@ -1,34 +1,30 @@
 ﻿# Projeto de Universidade
 
 
-## Narrativa – Alunos
+## Narrativa
+
+### Alunos
 
 - A universidade possui diversos alunos que podem estar matriculados em mais de um curso (graduação)
 - Os alunos podem fazer cursos extras fornecidos externa e internamente (universidade) para contar como horas complementares.
 - Não há restrição de matérias puxadas se não houver sobreposição de horários.
 - Os alunos são submetidos a duas provas por semestre para cada disciplina. Eventuais trabalhos devem ser tratados pelo professor para compor a nota da prova.
 
-
-
-## Narrativa – Disciplina
+### Disciplina
 
 - Cada disciplina é fornecida por um professor. Restrição: apenas por este professor.
 - Algumas disciplinas possuem pré-requisitos. Um mesmo pré-requisito pode ser associado a mais de uma disciplina.
 - As disciplinas podem ser comuns a cursos distintos. Ex: Cálculo 1 para computação e engenharia.
 - O ciclo de vida da disciplina é semestral.
 
-
-
-## Narrativa -  Professores
+### Professores
 
 - Professores que ministram as disciplinas estão associados as coordenações de seus respectivos cursos. Ex: Computação, Física, Engenharia…
 
 
+## Levantamento de requisitos
 
-
-# Levantamento de requisitos
-
-## Entidades:
+### Entidades:
 
 Pessoa: Nome, CPF, Data de nascimento, e-mail, telefone, endereço
 
@@ -51,7 +47,7 @@ Sala: Nome
 Extensão: Nome, área, instituição, carga horária, data de conclusão,comprovante
 
 
-## Relações:
+### Relações:
 
 Aluno x Disciplina (N, M): Matriculado na disciplina
 
@@ -74,3 +70,13 @@ Sala X Departamento (N, 1): Departamento da sala
 Aluno x Extensão (N, M): Horas complementares
 
 Curso x Professor (1, 1): Coordenador do curso
+
+## Modelo UML
+
+![](https://github.com/NandesLima/modelagem-universidade/blob/master/modelo-uml.png)
+
+
+## Modelo EER
+
+![](https://github.com/NandesLima/modelagem-universidade/blob/master/modelo-EER.png)
+
