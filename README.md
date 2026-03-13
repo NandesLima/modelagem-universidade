@@ -1,82 +1,75 @@
-﻿# Projeto de Universidade
+# 🏫 Modelagem de Banco de Dados: Gestão Universitária
 
+<div align="center">
+  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Academic-Systems-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Entity_Relationship-7000ff?style=for-the-badge&logo=diagramsdotnet&logoColor=white" />
+</div>
 
-## Narrativa
+<br>
 
-### Alunos
+> **Objetivo:** Projetar e documentar a arquitetura de um banco de dados relacional para um sistema de gestão acadêmica, integrando o controle de matrículas, oferta de disciplinas por semestre, alocação de salas e gestão de corpo docente.
 
-- A universidade possui diversos alunos que podem estar matriculados em mais de um curso (graduação)
-- Os alunos podem fazer cursos extras fornecidos externa e internamente (universidade) para contar como horas complementares.
-- Não há restrição de matérias puxadas se não houver sobreposição de horários.
-- Os alunos são submetidos a duas provas por semestre para cada disciplina. Eventuais trabalhos devem ser tratados pelo professor para compor a nota da prova.
+---
 
-### Disciplina
+## 🎯 Visão Geral do Projeto
 
-- Cada disciplina é fornecida por um professor. Restrição: apenas por este professor.
-- Algumas disciplinas possuem pré-requisitos. Um mesmo pré-requisito pode ser associado a mais de uma disciplina.
-- As disciplinas podem ser comuns a cursos distintos. Ex: Cálculo 1 para computação e engenharia.
-- O ciclo de vida da disciplina é semestral.
+Este projeto foca na resolução de um problema clássico de arquitetura de dados: o **Ambiente Acadêmico**. O desafio foi criar uma estrutura capaz de lidar com relacionamentos muitos-para-muitos (N:M) complexos, como alunos em múltiplos cursos e disciplinas com pré-requisitos variados, garantindo a normalização e a escalabilidade do sistema.
 
-### Professores
+Desenvolvido utilizando **MySQL Workbench**.
 
-- Professores que ministram as disciplinas estão associados as coordenações de seus respectivos cursos. Ex: Computação, Física, Engenharia…
+👉 **[Fazer o download do Arquivo do Modelo (.mwb)](universidade.mwb)**
 
+---
 
-## Levantamento de requisitos
+## 📖 Levantamento de Requisitos (A Narrativa)
 
-### Entidades:
+O sistema foi modelado para atender às seguintes diretrizes de negócio:
 
-Pessoa: Nome, CPF, Data de nascimento, e-mail, telefone, endereço
+### 🎓 Vida Acadêmica do Aluno
+- **Flexibilidade:** Alunos podem estar em múltiplos cursos de graduação simultaneamente.
+- **Cursos Livres:** Suporte para registro de atividades de extensão (horas complementares).
+- **Avaliação:** Sistema semestral com controle de notas (provas e trabalhos).
 
-- Aluno – Matrícula, data de matrícula
+### 📚 Estrutura de Disciplinas
+- **Exclusividade:** Cada disciplina é ministrada por um único professor por oferta.
+- **Dependências:** Gestão de pré-requisitos (uma matéria pode travar várias outras).
+- **Compartilhamento:** Disciplinas comuns a múltiplos cursos (ex: Cálculo I para Engenharia e TI).
 
-- Professor – Registro
+### 👨‍🏫 Gestão Docente e Espacial
+- **Coordenação:** Professores vinculados a departamentos e coordenações de curso.
+- **Alocação:** Controle de oferta vinculando Disciplina, Período, Curso e Sala de Aula.
 
-Disciplina: Nome, área, carga horária
+---
 
-Curso: Nome, duração, professor coordenador
+## 🏗️ Arquitetura do Sistema
 
-Departamento: Nome, professor coordenador, campus
+### 🧩 Entidades Chave
 
-Pré-requisitos: Nome do curso
+| Grupo | Entidades | Atributos de Destaque |
+| :--- | :--- | :--- |
+| **Pessoas** | Pessoa, Aluno, Professor | CPF, Matrícula, Registro Funcional |
+| **Acadêmico** | Disciplina, Curso, Departamento | Carga Horária, Coordenador, Campus |
+| **Infra** | Sala, Período, Oferta | Nome da Sala, Semestre Letivo |
+| **Extra** | Extensão | Horas, Comprovante, Instituição |
 
-Período: Ano, semestre
+### 🔗 Principais Relacionamentos
+- `[Professor] 1:N [Disciplina]`: Responsabilidade docente.
+- `[Disciplina] N:M [Período/Curso/Sala]`: O nó central da oferta acadêmica.
+- `[Aluno] N:M [Disciplina]`: Controle de matrículas ativas.
+- `[Pré-requisito] N:M [Disciplina]`: Lógica de dependência curricular.
 
-Sala: Nome
+---
 
-Extensão: Nome, área, instituição, carga horária, data de conclusão,comprovante
+## 🗺️ Documentação Visual
 
+### 📐 Schema Lógico/Físico (EER)
+Visualização das tabelas, tipos de dados e chaves:
+![Modelo EER](modelo-EER.png)
 
-### Relações:
+### 📊 Schema Conceitual (UML)
+Visão abstrata das regras de negócio:
+![Modelo UML](modelo-uml.png)
 
-Aluno x Disciplina (N, M): Matriculado na disciplina
-
-Aluno x Curso (N, M): Matriculado no curso
-
-Pré-requisito x Disciplina (N, M): Pré-requisito das disciplinas
-
-Professor X Disciplina (1, N): Professor da disciplina
-
-Professor x Departamento (N, 1): Departamento do professor
-
-Professor x Departamento (1, 1): Coordenação do departamento
-
-Curso x Departamento (N, 1): Departamento do curso
-
-Disciplina x Período X Curso X Sala (N, M): Oferta da disciplina
-
-Sala X Departamento (N, 1): Departamento da sala
-
-Aluno x Extensão (N, M): Horas complementares
-
-Curso x Professor (1, 1): Coordenador do curso
-
-## Modelo UML
-
-![](https://github.com/NandesLima/modelagem-universidade/blob/master/modelo-uml.png)
-
-
-## Modelo EER
-
-![](https://github.com/NandesLima/modelagem-universidade/blob/master/modelo-EER.png)
-
+---
+*Este repositório faz parte do meu portfólio de **Arquitetura de Dados**, demonstrando capacidade de transformar regras de negócio educacionais em modelos relacionais robustos.*
