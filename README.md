@@ -8,6 +8,12 @@
 
 <br>
 
+<div align="center">
+  <h3>🌐 <a href="https://nandeslima.github.io/modelagem-universidade/">Acesse a Versão Interativa (MkDocs)</a></h3>
+</div>
+
+<br>
+
 > **Objetivo:** Projetar e documentar a arquitetura de um banco de dados relacional para um sistema de gestão acadêmica, integrando o controle de matrículas, oferta de disciplinas por semestre, alocação de salas e gestão de corpo docente.
 
 ---
@@ -65,11 +71,11 @@ O sistema foi modelado para atender às seguintes diretrizes de negócio:
 
 ### 📐 Schema Lógico/Físico (EER)
 Visualização das tabelas, tipos de dados e chaves:
-![Modelo EER](modelo-EER.png)
+![Modelo EER](docs/assets/modelo-eer.png)
 
 ### 📊 Schema Conceitual (UML)
 Visão abstrata das regras de negócio:
-![Modelo UML](modelo-uml.png)
+![Modelo UML](docs/assets/modelo-uml.png)
 
 ---
-*Este repositório faz parte do meu portfólio de **Arquitetura de Dados**, demonstrando capacidade de transformar regras de negócio educacionais em modelos relacionais robustos.*
+*Este repositório faz parte do meu portfólio de **Arquitetura de Dados**, demonstrando capacidade de transformar regras de negócio educacionais em modelos relacionais robustos, desenvolvido por **Ariel Shlomoh**.*
