@@ -1,7 +1,7 @@
-site_name: "Arquitetura Universitária 🏫"
+site_name: "University DB Modeling 🏫"
 site_url: "https://nandeslima.github.io/modelagem-universidade"
 site_author: "Ariel Shlomoh"
-site_description: "Modelagem de Banco de Dados para Gestão Acadêmica"
+site_description: "Arquitetura de Banco de Dados para Gestão Universitária"
 
 theme:
   name: material
@@ -23,12 +23,15 @@ theme:
         name: Alternar para modo escuro
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.tabs.link
+
+nav:
+  - Início: index.md
+  - O Projeto: projeto.md
 
 extra:
   social:
